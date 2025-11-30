@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Physiotherapy Centre</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 10px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .contact-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            overflow-x: auto;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .testimonials-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            min-width: 280px;
+            max-width: 280px;
+            flex-shrink: 0;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-name {
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .gallery-section {
+            margin-bottom: 3rem;
+        }
+
+        .gallery-section h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            padding: 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .gallery-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-grid::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .gallery-grid::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        .gallery-grid::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+
+        .gallery-item {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            min-width: 280px;
+            max-width: 280px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #667eea;
+            flex-shrink: 0;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            color: #667eea;
+            padding: 2rem;
+        }
+
+        .upload-placeholder p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        ul {
+            margin-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764504171/logo_k824qy.jpg" alt="Shamli Physiotherapy Logo" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                </div>
+                <div class="header-text">
+                    <h1>SHAMLI PHYSIOTHERAPY OSTEO-CHIRO CLINIC</h1>
+                    <p class="tagline">Professional Physiotherapy & Rehabilitation Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#qualifications">Qualifications</a></li>
+            <li><a href="#timings">Timings</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="info-box">
+                <p>Welcome to our professional physiotherapy centre, where we are committed to helping you achieve optimal health and mobility. Our experienced team of physiotherapists provides personalized treatment plans tailored to your specific needs.</p>
+                <p style="margin-top: 1rem;">With state-of-the-art facilities and evidence-based treatment approaches, we help patients recover from injuries, manage chronic conditions, and improve their overall quality of life.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🦴 Orthopedic Physiotherapy</h3>
+                    <p>Treatment for muscle, bone, and joint injuries including post-surgical rehabilitation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏃 Sports Injury Rehabilitation</h3>
+                    <p>Specialized care for athletes recovering from sports-related injuries.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🧠 Neurological Rehabilitation</h3>
+                    <p>Treatment for stroke, spinal cord injuries, and neurological conditions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💆 Manual Therapy</h3>
+                    <p>Hands-on techniques to reduce pain and improve mobility.</p>
+                </div>
+                <div class="service-card">
+                    <h3>⚡ Electrotherapy</h3>
+                    <p>Advanced electrical stimulation for pain relief and healing.</p>
+                </div>
+                <div class="service-card">
+                    <h3>👶 Pediatric Physiotherapy</h3>
+                    <p>Specialized care for children with developmental challenges.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Osteopathy</h3>
+                    <p> Hands-on approach to healthcare that emphasizes the relationship between the body's structure and function, aiming to treat the whole person rather than just the symptoms.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Our Gallery</h2>
+            
+            <div class="gallery-section">
+                <h3>🏥 Our Clinic</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503667/clinic1.jpg_tntmnd.jpg" alt="Clinic Door">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503667/clinic2.jpg_qpacce.jpg" alt="Reception Area">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503668/clinic3.jpg_ezxw63.jpg" alt="Waiting Area">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503668/clinic4.jpg_og5iiz.jpg" alt="Parking Area">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503668/clinic5.jpg_hc952l.jpg" alt="Clinic Entrance">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503671/clinic6.jpg_yzlgie.jpg" alt="Treatment Room">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503671/clinic7.jpg_ckzwaz.jpg" alt="Clinic Interior">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503671/clinic8.jpg_wdnn78.jpg" alt="Therapy Area">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503672/clinic9.jpg_bnvsjh.jpg" alt="Building Exterior">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503672/clinic10.jpg_g5juwi.jpg" alt="Clinic View">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503673/clinic11.jpg_yhs6qf.jpg" alt="Waiting Area">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503675/clinic12.jpg_mckjmc.jpg" alt="Treatment Space">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503675/clinic13.jpg_rjfp88.jpg" alt="Clinic Location">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503675/clinic14.jpg_qor16d.jpg" alt="Waiting Room">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503676/clinic15.jpg_wec6nc.jpg" alt="Clinic Entrance">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503676/clinic16.jpg_lkkvtb.jpg" alt="Clinic Facility">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503678/clinic17.jpg_pahjvi.jpg" alt="Treatment Area">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503678/clinic18.jpg_zy8w8x.jpg" alt="Clinic Space">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503679/clinic19.jpg_simmxu.jpg" alt="Clinic Interior">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503679/clinic20.jpg_w9s6oh.jpg" alt="Clinic View">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503680/clinic21.jpg_vdtaxc.jpg" alt="Clinic Workspace">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3>🏆 Awards & Certifications</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503383/awards1.jpg_ab2g0z.jpg" alt="Award Certificate 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503383/awards2.jpg_qcf6ss.jpg" alt="Award Certificate 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503383/awards3.jpg_coebqg.jpg" alt="Award Certificate 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503383/awards4.jpg_nqiaky.jpg" alt="Professional Certificate 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards5.jpg_yxt5ru.jpg" alt="Professional Certificate 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards6.jpg_sehw6u.jpg" alt="Achievement Award 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards7.jpg_mplfkh.jpg" alt="Achievement Award 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards8.jpg_pqs5ib.jpg" alt="Recognition Certificate">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards9.jpg_fudlhq.jpg" alt="Professional Achievement">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards10.jpg_dfzdl9.jpg" alt="Certification 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards11.jpg_v4x3ga.jpg" alt="Certification 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards12.jpg_cyhtnj.jpg" alt="Excellence Award">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards13.jpg_d1jo8z.jpg" alt="Honorary Certificate">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503384/awards14.jpg_vfeqdu.jpg" alt="Distinguished Award">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503385/awards15.jpg_rcnshd.jpg" alt="Achievement Award">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3>👨‍⚕️ Our Team</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 1rem;">
+                    <div class="info-box">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503895/dr-jitendra.jpg_lznvdh.jpg" alt="Dr. Jitendra Kumar Singh" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid #667eea; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                        <h3 style="text-align: center; color: #667eea; margin-bottom: 0.5rem;">Dr. Jitendra Kumar Singh</h3>
+                        <p style="text-align: center; color: #764ba2; font-weight: 600; margin-bottom: 1rem;">Director</p>
+                        <p style="line-height: 1.8;">With over 20 years of experience in physiotherapy, Dr. Jitendra Kumar Singh specializes in orthopedic and sports rehabilitation. He holds advanced certifications in manual therapy and has successfully treated thousands of patients. His patient-centric approach and expertise in modern physiotherapy techniques have made him one of the most trusted physiotherapists in the region.</p>
+                        <p style="margin-top: 1rem;"><strong>Specializations:</strong> Orthopedic Rehabilitation, Sports Injuries, Manual Therapy, Post-Surgical Care</p>
+                    </div>
+                    <div class="info-box">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <img src="https://res.cloudinary.com/dix7ldgng/image/upload/v1764503894/dr-amrita.jpg_dobmik.jpg" alt="Dr. Amrita Singh" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid #667eea; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        </div>
+                        <h3 style="text-align: center; color: #667eea; margin-bottom: 0.5rem;">Dr. Amrita Singh</h3>
+                        <p style="text-align: center; color: #764ba2; font-weight: 600; margin-bottom: 1rem;">Director</p>
+                        <p style="line-height: 1.8;">Dr. Amrita Singh brings exceptional expertise in neurological rehabilitation and women's health physiotherapy with over 20 years of dedicated practice. With a compassionate approach and dedication to patient care, she has helped numerous patients recover from stroke, spinal injuries, and various neurological conditions. Her holistic treatment methods combine traditional and modern physiotherapy practices for optimal results.</p>
+                        <p style="margin-top: 1rem;"><strong>Specializations:</strong> Neurological Rehabilitation, Women's Health, Pediatric Physiotherapy, Geriatric Care</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Patients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Excellent treatment for my back pain. Dr. was very professional and the therapy sessions really helped me recover quickly. Highly recommended!"</p>
+                    <p class="testimonial-name">- Rajesh Kumar</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"After my knee surgery, I was worried about recovery. The physiotherapy here was amazing and now I can walk without pain. Thank you so much!"</p>
+                    <p class="testimonial-name">- Priya Sharma</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best physiotherapy clinic in Shamli! Very clean facility and the staff is very caring. My shoulder injury healed much faster than expected."</p>
+                    <p class="testimonial-name">- Amit Singh</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I had chronic neck pain for years. The treatment here has been life-changing. Very knowledgeable doctors and modern equipment."</p>
+                    <p class="testimonial-name">- Sunita Verma</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Brought my mother here for her arthritis pain. The improvement has been remarkable. Very patient and understanding staff."</p>
+                    <p class="testimonial-name">- Vikram Mehta</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Great experience! The exercises and manual therapy helped my sports injury heal properly. Now I'm back to playing cricket!"</p>
+                    <p class="testimonial-name">- Rohit Patel</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Very satisfied with the treatment for my slip disc problem. The doctor explained everything clearly and the results are excellent."</p>
+                    <p class="testimonial-name">- Kavita Gupta</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Wonderful clinic with proper care and attention. My ankle sprain recovery was quick and painless thanks to their expert treatment."</p>
+                    <p class="testimonial-name">- Manish Agarwal</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Highly professional service. My frozen shoulder issue is now completely resolved. Very grateful for their dedication and care."</p>
+                    <p class="testimonial-name">- Anjali Reddy</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best decision to come here for my father's stroke rehabilitation. The progress has been amazing and the staff is extremely supportive."</p>
+                    <p class="testimonial-name">- Deepak Chauhan</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Excellent treatment for my sciatica pain. The combination of therapy and exercises worked wonders. Highly recommend this clinic!"</p>
+                    <p class="testimonial-name">- Neha Joshi</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Very good experience. My wrist fracture recovery was smooth and quick. The physiotherapist was very knowledgeable and friendly."</p>
+                    <p class="testimonial-name">- Sanjay Yadav</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="qualifications">
+        <div class="container">
+            <h2>Qualifications and Certificates</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="info-box">
+                    <h3 style="color: #667eea; text-align: center; margin-bottom: 1.5rem;">Dr. Jitendra Kumar Singh</h3>
+                    <p style="text-align: center; font-size: 1.1rem; color: #764ba2; font-weight: 600; margin-bottom: 1.5rem;">M.P.T (Sports Medicine)</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in F.D.M (Germany)</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Osteopathy</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Manual Technique in Lower Back Ache</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in P.N.F</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Maitland</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in N.D.T / Bobath</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Team Physiotherapist Course from S.A.I</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certified Visceral Manipulation Practitioner</li>
+                        <li style="padding: 0.5rem 0;">✓ Certified Dry Needling Practitioner</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3 style="color: #667eea; text-align: center; margin-bottom: 1.5rem;">Dr. Amrita Singh</h3>
+                    <p style="text-align: center; font-size: 1.1rem; color: #764ba2; font-weight: 600; margin-bottom: 1.5rem;">M.P.T (Neuro)</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Osteopathy</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Manual Technique in Lower Back Ache</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in P.N.F</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in Maitland</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certificate in N.D.T / Bobath</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ Certified Dry Needling Practitioner</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">✓ CC & MRLPD</li>
+                        <li style="padding: 0.5rem 0;">✓ CPCSL (New Delhi)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timings">
+        <div class="container">
+            <h2>Opening Hours</h2>
+            <div class="info-box" style="text-align: center;">
+                <h3>📅 We're Open:</h3>
+                <p style="font-size: 1.2rem; margin: 1rem 0;">
+                    <strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM
+                </p>
+                <p style="font-size: 1.2rem;">
+                    <strong>Sunday:</strong> 9:00 AM - 2:00 PM
+                </p>
+                <p style="margin-top: 1.5rem; color: #764ba2;">
+                    <strong>⚠️ Appointments Recommended</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <strong>📞 Phone</strong>
+                    <p>+91 8171416965</p>
+                    <p>+91 7017675487</p>
+                </div>
+                <div class="contact-card">
+                    <strong>📍 Address</strong>
+                    <p>Gali No.3, Teacher's Colony</p>
+                    <p>Karnal Road, Shamli-247776</p>
+                    <p>Uttar Pradesh, India</p>
+                </div>
+                <div class="contact-card">
+                    <strong>📧 Email</strong>
+                    <p>shamliphysiotherapy242522@gmail.com</p>
+                </div>
+            </div>
+            <div class="info-box" style="margin-top: 2rem; text-align: center;">
+                <h3>Book Your Appointment Today!</h3>
+                <p>Call us or visit our centre for a consultation. We're here to help you on your journey to recovery.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SHAMLI PHYSIOTHERAPY OSTEO-CHIRO CLINIC. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Dedicated to your health and wellness</p>
+        </div>
+    </footer>
+</body>
+</html>
